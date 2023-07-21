@@ -27,8 +27,8 @@ export default function MarkerPosition({
       <Marker
         icon={L.icon({
           iconUrl: customIcon,
-          iconSize: [12, 12],
-          iconAnchor: [6, 6],
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
         })}
         position={position}
       >

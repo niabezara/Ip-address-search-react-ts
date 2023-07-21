@@ -25,6 +25,7 @@ export default function SearchBar({
         <input
           type="text"
           value={Ip}
+          placeholder="Search for any IP address or domain"
           onKeyDown={(e) => handleKey(e)}
           onFocus={Handleinput}
           onChange={(e) => setIP(e.target.value)}
@@ -96,9 +97,15 @@ const SearchSection = styled.section`
   box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.1);
   border: none;
   height: 3.8rem;
+  @media (min-width: 770px) {
+    width: 50rem;
+  }
   input {
     border: none;
     padding-left: 2rem;
+    @media (min-width: 770px) {
+      width: 92.4%;
+    }
   }
 `;
 
