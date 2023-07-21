@@ -5,7 +5,6 @@ import "leaflet/dist/leaflet.css";
 import SearchBar from "./Components/SearchBar";
 import GlobalStyle from "./GlobalStyle";
 import { Helmet } from "react-helmet";
-import L, { LatLngExpression, Icon } from "leaflet";
 import MarkerPosition from "./Components/MarkerPosition";
 
 function App() {
