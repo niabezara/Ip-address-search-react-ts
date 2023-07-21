@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { Marker, Popup } from "react-leaflet";
-import L, { LatLngTuple, icon } from "leaflet";
+import L, { LatLngTuple } from "leaflet";
 import { useMap } from "react-leaflet";
 import { IpData } from "../Data/IpDataInterface";
 import customIcon from "../../public/icon-location.svg";
