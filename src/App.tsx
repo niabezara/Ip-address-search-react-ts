@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react";
 import { IpData } from "./Data/IpDataInterface";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import SearchBar from "./Components/SearchBar";
 import GlobalStyle from "./GlobalStyle";
 import { Helmet } from "react-helmet";
 import L, { LatLngExpression, Icon } from "leaflet";
-
-const customIcon = new L.divIcon({
-  className: "custom-icon",
-  html: '<img src="/icon-location.svg" alt="Custom Marker Icon" />',
-  iconSize: [12, 12],
-  iconAnchor: [6, 6],
-});
+import MarkerPosition from "./Components/MarkerPosition";
 
 function App() {
   const [Ip, setIP] = useState("192.212.174.101");
@@ -36,6 +30,11 @@ function App() {
     const data = await response.json();
     setIpValue(data);
   };
+  const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
   return (
     <div>
       <Helmet>
@@ -54,22 +53,20 @@ function App() {
         setIpValue={setIpValue}
         IpValue={IpValue}
         Handleinput={Handleinput}
+        handleKey={handleKey}
       />
       {IpValue && (
         <MapContainer
           center={[IpValue.lat, IpValue.lon]}
           zoom={10}
-          style={{ height: "100%", zIndex: 1 }}
+          scrollWheelZoom={true}
+          style={{ height: "100vh", zIndex: 1 }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={[IpValue.lat, IpValue.lon]} icon={customIcon}>
-            <Popup>
-              <b>{IpValue.city}</b>
-            </Popup>
-          </Marker>
+          <MarkerPosition IpValue={IpValue} />
         </MapContainer>
       )}
     </div>

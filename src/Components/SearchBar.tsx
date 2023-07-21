@@ -8,6 +8,7 @@ export default function SearchBar({
   IpValue,
   Ip,
   Handleinput,
+  handleKey,
 }: {
   handleClick: () => void;
   Ip: string;
@@ -15,6 +16,7 @@ export default function SearchBar({
   IpValue: IpData | null;
   setIpValue: React.Dispatch<React.SetStateAction<IpData | null>>;
   Handleinput: () => void;
+  handleKey: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }) {
   return (
     <SearchContainer>
@@ -23,6 +25,7 @@ export default function SearchBar({
         <input
           type="text"
           value={Ip}
+          onKeyDown={(e) => handleKey(e)}
           onFocus={Handleinput}
           onChange={(e) => setIP(e.target.value)}
         />
@@ -64,7 +67,7 @@ const SearchContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (min-width: 770px;) {
+  @media (min-width: 770px) {
     background-image: url("./public/pattern-bg-desktop.png");
     background-repeat: no-repeat;
     background-size: cover;
