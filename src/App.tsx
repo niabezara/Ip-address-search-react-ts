@@ -5,6 +5,14 @@ import "leaflet/dist/leaflet.css";
 import SearchBar from "./Components/SearchBar";
 import GlobalStyle from "./GlobalStyle";
 import { Helmet } from "react-helmet";
+import L, { LatLngExpression, Icon } from "leaflet";
+
+const customIcon = new L.divIcon({
+  className: "custom-icon",
+  html: '<img src="/icon-location.svg" alt="Custom Marker Icon" />',
+  iconSize: [12, 12],
+  iconAnchor: [6, 6],
+});
 
 function App() {
   const [Ip, setIP] = useState("192.212.174.101");
@@ -51,23 +59,13 @@ function App() {
         <MapContainer
           center={[IpValue.lat, IpValue.lon]}
           zoom={10}
-          style={{ height: "400px" }}
+          style={{ height: "100%", zIndex: 1 }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker
-            position={[IpValue.lat, IpValue.lon]}
-            icon={
-              new L.divIcon({
-                className: "custom-icon",
-                html: `<img src="/icon-location.svg" alt="Custom Marker Icon" />`,
-                iconSize: [12, 12],
-                iconAnchor: [12, 12],
-              })
-            }
-          >
+          <Marker position={[IpValue.lat, IpValue.lon]} icon={customIcon}>
             <Popup>
               <b>{IpValue.city}</b>
             </Popup>

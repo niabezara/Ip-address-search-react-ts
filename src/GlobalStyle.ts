@@ -10,7 +10,7 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
   #root{
-    height: 100%;
+    height: 100vh;
   
   }
   `;

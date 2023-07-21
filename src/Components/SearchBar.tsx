@@ -31,14 +31,25 @@ export default function SearchBar({
         </SearchButton>
       </SearchSection>
       <InfoData>
-        <Title>IP Address</Title>
-        <Info>{IpValue?.query}</Info>
-        <Title>Location</Title>
-        <Info>{IpValue?.city}</Info>
-        <Title>Timezone</Title>
-        <Info>{IpValue?.timezone}</Info>
-        <Title>ISP</Title>
-        <Info>{IpValue?.isp}</Info>
+        <ArticleContainer>
+          <Title>IP Address</Title>
+          <Info>{IpValue?.query}</Info>
+        </ArticleContainer>
+        <Br />
+        <ArticleContainer>
+          <Title>Location</Title>
+          <Info>{IpValue?.city}</Info>
+        </ArticleContainer>
+        <Br />
+        <ArticleContainer>
+          <Title>Timezone</Title>
+          <Info>{IpValue?.timezone}</Info>
+        </ArticleContainer>
+        <Br />
+        <ArticleContainer>
+          <Title>ISP</Title>
+          <Info>{IpValue?.isp}</Info>
+        </ArticleContainer>
       </InfoData>
     </SearchContainer>
   );
@@ -53,15 +64,20 @@ const SearchContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 770px;) {
+    background-image: url("./public/pattern-bg-desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 `;
 const Tracker = styled.h1`
   color: #fff;
-  font-family: Rubik;
   font-size: 26px;
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
   letter-spacing: -0.232px;
+  margin-top: 2.4rem;
 `;
 const SearchButton = styled.button`
   background-color: rgba(0, 0, 0, 1);
@@ -79,21 +95,18 @@ const SearchSection = styled.section`
   height: 3.8rem;
   input {
     border: none;
+    padding-left: 2rem;
   }
 `;
 
 const Title = styled.p`
-  color: #404040;
-  text-align: center;
-  font-size: 9px;
-  font-style: normal;
+  color: #2c2c2c8c;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: 1.458px;
   text-transform: uppercase;
 `;
 const InfoData = styled.div`
-  margin-top: 2.4rem;
   color: #2c2c2c;
   text-align: center;
   font-size: 20px;
@@ -104,8 +117,15 @@ const InfoData = styled.div`
   border-radius: 15px;
   background: #fff;
   width: 80%;
+  transform: translateY(20%);
+  z-index: 1000;
   box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.1);
   padding: 2.6rem 2.4rem;
+  @media (min-width: 770px) {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
 `;
 const Info = styled.p`
   color: #2c2c2c;
@@ -116,4 +136,15 @@ const Info = styled.p`
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.179px;
+`;
+
+const ArticleContainer = styled.article``;
+const Br = styled.br`
+  @media (min-width: 770px) {
+    border-right: 2px solid #000;
+    content: "";
+    display: block;
+    width: 1px;
+    opacity: 0.15000000596046448;
+  }
 `;
