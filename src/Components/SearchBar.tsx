@@ -89,6 +89,7 @@ const SearchButton = styled.button`
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 0 15px 15px 0;
+  cursor: pointer;
 `;
 const SearchSection = styled.section`
   margin-top: 2.9rem;
@@ -97,6 +98,7 @@ const SearchSection = styled.section`
   box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.1);
   border: none;
   height: 3.8rem;
+  cursor: pointer;
   @media (min-width: 770px) {
     width: 50rem;
   }
