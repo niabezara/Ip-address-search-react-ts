@@ -17,7 +17,7 @@ function App() {
       const data = await response.json();
       setIpValue(data);
     };
-    void fetchIpData();
+    fetchIpData();
   }, []);
   const Handleinput = () => {
     if (Ip === "192.212.174.101") {
@@ -27,7 +27,7 @@ function App() {
   const handleClick = async () => {
     const response = await fetch(`http://ip-api.com/json/${Ip}`);
     const data = await response.json();
-    void setIpValue(data);
+    setIpValue(data);
   };
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
