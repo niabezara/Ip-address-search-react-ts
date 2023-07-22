@@ -60,7 +60,7 @@ export default function SearchBar({
 }
 
 const SearchContainer = styled.div`
-  background-image: url("./public/pattern-bg-mobile.png");
+  background-image: url("/pattern-bg-mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -69,7 +69,7 @@ const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media (min-width: 770px) {
-    background-image: url("./public/pattern-bg-desktop.png");
+    background-image: url("/pattern-bg-desktop.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
