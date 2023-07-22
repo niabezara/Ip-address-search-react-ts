@@ -11,8 +11,8 @@ export default function MarkerPosition({
   IpValue: IpData | null;
 }) {
   const position: LatLngTuple = useMemo(() => {
-    return [IpValue?.lat ?? 0, IpValue?.lon ?? 0];
-  }, [IpValue?.lat, IpValue?.lon]);
+    return [IpValue?.location.lat ?? 0, IpValue?.location.lng ?? 0];
+  }, [IpValue?.location.lat, IpValue?.location.lng]);
 
   const map = useMap();
 

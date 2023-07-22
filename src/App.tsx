@@ -13,7 +13,9 @@ function App() {
 
   useEffect(() => {
     const fetchIpData = async () => {
-      const response = await fetch(`http://ip-api.com/json/${Ip}`);
+      const response = await fetch(
+        `https://geo.ipify.org/api/v2/country,city?apiKey=at_f08ryL7xKDMbFwmM67YjKn9eNbAbQ&ipAddress=${Ip}`
+      );
       const data = await response.json();
       setIpValue(data);
     };
@@ -25,7 +27,9 @@ function App() {
     }
   };
   const handleClick = async () => {
-    const response = await fetch(`http://ip-api.com/json/${Ip}`);
+    const response = await fetch(
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_f08ryL7xKDMbFwmM67YjKn9eNbAbQ&ipAddress=${Ip}`
+    );
     const data = await response.json();
     setIpValue(data);
   };
@@ -56,7 +60,7 @@ function App() {
       />
       {IpValue && (
         <MapContainer
-          center={[IpValue.lat, IpValue.lon]}
+          center={[IpValue.location.lat, IpValue.location.lng]}
           zoom={10}
           scrollWheelZoom={true}
           style={{ height: "100vh", zIndex: 1 }}
